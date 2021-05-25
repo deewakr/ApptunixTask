@@ -18,10 +18,12 @@ export class HelperService {
     }
 
     openSnackBar(msg:string) {
-        this._snackBar.open(msg, 'Splash', {
+        this._snackBar.open(msg, '', {
             horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition,
-        });
+            duration: 2000,
+            panelClass: [msg.includes('error') ? 'customSnackbarred' :'customSnackbargreen']
+        }); 
     }
 
 }

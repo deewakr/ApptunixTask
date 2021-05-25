@@ -37,6 +37,7 @@ export class EmployeeListComponent implements OnInit {
     this.empService.getAllEmployees()
       .then(async (res: any) => {
         this.employees = await res.allEmployees;
+        this.employees.reverse();
         this.listData = new MatTableDataSource(this.employees);
         this.listData.paginator = this.paginator;
         this.listData.sort = this.sort;

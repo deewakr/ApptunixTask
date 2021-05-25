@@ -1,0 +1,29 @@
+
+<div class="main">
+    <h1 mat-dialog-title>Please Fill the Form</h1>
+    <form [formGroup]="empForm" class="custom-form-fields">
+    <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput formControlName="id">
+        <mat-error *ngIf="empForm?.errors?.required">Due Date is required for Tasks</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="employee_name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Salary</mat-label>
+        <input matInput formControlName="employee_salary">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="employee_age">
+    </mat-form-field>
+
+    </form>
+</div>
+<div class="main">
+    <button mat-raised-button color="" (click)="onNoClick()">cancel</button>
+    <button *ngIf="!isUpdated" mat-raised-button color="primary" [disabled]="empForm.invalid" (click)="addEmp()">Ok</button>
+    <button *ngIf="isUpdated" mat-raised-button color="primary"[disabled]="empForm.invalid" (click)="updateEmp()">Ok</button>
+</div>
